@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>1111</title>
+</head>
+
+<style>
+    .activeBorder{
+        border: 1px solid red;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <input type="button" value="add" @click="increment"/>
+        <p> {{ number }} </p>
+        <input type="button" value="minus" @click="decrement"/>
+
+        <img v-show="false" src= "./image/image1.png"></img>
+        <img v-if="false" src= "./image/image1.png"></img>
+        <img :src="imageSrc" :class="{activeBorder: isShowBorder}"></img>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                number: 0,
+                imageSrc: './image/image1.png',
+                isShowBorder: true,
+            },
+            methods: {
+                increment: function () {
+                    if (this.number >= 10) {
+                        alert("max value.");
+                        return;
+                    }
+
+                    this.number++;
+                },
+                decrement: function () {
+                    if (this.number <= 0) {
+                        alert(" min value");
+                        return;
+                    }
+
+                    this.number--;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

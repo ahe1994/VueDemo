@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="notepadDiv">
+        <h1>{{ title }}</h1>
+        <input type="text" v-model="inputItem" @keyup.enter="addItem" />
+        <ul>
+            <li v-for="(item, index) in list">
+                {{index+1}} : {{item}}
+                <button @click="deleteItem(index)">delete</button>
+            </li>
+        </ul>
+
+        <p>{{list.length}} 个元素</p>
+        <button @click="clear">clear</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var notepad = new Vue({
+            el: "#notepadDiv",
+            data: {
+                title: "Notepad",
+                list: ["张三", "里斯"],
+                inputItem: "111",
+            },
+            methods: {
+                addItem: function () {
+                    this.list.push(this.inputItem);
+                },
+                deleteItem: function (index) {
+                    this.list.splice(index, 1);
+                },
+                clear: function(){
+                    // this.list.splice(0, this.list.length);
+                    // this.list = [];
+                    this.list.length = 0;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

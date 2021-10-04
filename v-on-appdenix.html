@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="app">
+        <button @click="paramBtnClick(123,'param2')">paramBtn</button>
+        <input type="text" @keyup.enter="keyUp" />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                paramBtnClick: function (p1, p2) {
+                    alert(p1 + " " + p2);
+                },
+                keyUp: function () {
+                    alert("enter press.");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
