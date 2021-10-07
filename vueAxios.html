@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div id="jokeApp">
+        <button @click="getJoke">Get joke</button>
+        <p>{{ joke }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var jokeApp = new Vue({
+            el: "#jokeApp",
+            data: {
+                joke: ""
+            },
+            methods: {
+                getJoke: function(){
+                    var jokeAppObj = this;
+                    axios.get("https://autumnfish.cn/api/joke")
+                    .then(function(response){
+                        jokeAppObj.joke = response.data;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

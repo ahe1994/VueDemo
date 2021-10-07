@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div id="weatherApp">
+        <input type="text" @keyup.enter="queryWeather" v-model="city"/>
+        <button @click="queryWeather">查询天气</button>
+        <ul>
+            <li v-for="weather in weathers">{{ "天气类型：" + weather.type +";最高温度:" + weather.high +";最低温度："+weather.low}}</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
